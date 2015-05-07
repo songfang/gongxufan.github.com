@@ -62,7 +62,7 @@
                 <h1 class="post-title">探索Rust的所有权系统</h1>
                 <p class="post-meta">2015/5/6</p>
                 <p class="post-meta">原文地址：<a target="_blank" href="http://nercury.github.io/rust/guide/2015/01/19/ownership.html">http://nercury.github.io/rust/guide/2015/01/19/ownership.html</a></p>
-                <p class="post-meta">显示原文部分:<input type="checkbox" onclick="hideOrigSection(this)"/></p>
+                <p class="post-meta">显示原文:<input type="checkbox" onclick="hideOrigSection(this)"/></p>
             </header>
 
             <article class="post-content">
@@ -153,35 +153,53 @@
 
                 <p>然而，Rust编译器遵循不同的 <em>ownership</em> 规则, 除非这个类型实现<code>Copy</code> trait(特性).
                    因此我们首先需要讨论 <code>Copy</code>trait, 并学习它.</p>
+                <p class="post-meta">笔者注：其实对于Rust来说它的zero-copy特性是它的一个目标．所以任何对象如果不实现Copy这个特性的话，
+                那么在赋值或者函数传参的时候他不会进行内存的拷贝，而是转移ownership或者进行borrowing.之所以基本的数据类型如i32等能够进行
+                按值传递进行内存复制是因为他们实现了Copy这个特性接口．zero-copy能提升Rust的效率，ownership和borrowing这两个机制
+                    可以保障语言的安全性．</p>
 
                 <h2 id="copy-trait"><a class="header-link" href="#copy-trait"><i class="fa fa-link"></i></a>Copy Trait</h2>
 
-                <p>The <code>Copy</code> trait makes the type to behave in a
+                <p class="post-meta">The <code>Copy</code> trait makes the type to behave in a
                     very familiar way: its bits will be copied to another
                     location for every assignment or use as function argument.
                     Implementing it allows your data to be used like a built-in integer.</p>
 
-                <p>The built-in machine type <code>i64</code> (one kind of integer) implements this
+                <p>实现<code>Copy</code> trait使得你自己的数据类型可以表现的像我们常见的那样: 在类型数据被复制或者当做函数参数的时候会拷贝它的每个比特位
+                    到另外一个地方.实现它允许你把自己的数据类型当做语言内置的整型一样使用.</p>
+
+                <p class="post-meta">The built-in machine type <code>i64</code> (one kind of integer) implements this
                     trait, like <a href="http://doc.rust-lang.org/std/marker/trait.Copy.html">many others</a>.</p>
 
-                <p>If we have a struct <code>Info</code>, we can make it copy-able by implementing
+                <p>内置的机器相关类型 <code>i64</code> (整形的一种) 实现这个
+                    trait, 比如 <a href="http://doc.rust-lang.org/std/marker/trait.Copy.html">许多其他实现Copy特性的例子</a>.</p>
+
+                <p class="post-meta">If we have a struct <code>Info</code>, we can make it copy-able by implementing
                     <code>Copy</code> this way:</p>
+
+                <p>如果我们有一个结构体：<code>Info</code>, 通过像这样实现<code>Copy</code>,我们可以使它变得可拷贝:</p>
 
                 <div class="highlight"><pre><code class="language-rust" data-lang="rust"><span class="k">struct</span> <span class="n">Info</span> <span class="p">{</span>
                     <span class="n">value</span><span class="o">:</span> <span class="kt">i64</span><span class="p">,</span>
                     <span class="p">}</span>
                     <span class="k">impl</span> <span class="n">Copy</span> <span class="k">for</span> <span class="n">Info</span> <span class="p">{}</span></code></pre></div>
 
-                <p>Or, equivalently, add <code>#[derive(Copy)]</code> attribute for it:</p>
+                <p class="post-meta">Or, equivalently, add <code>#[derive(Copy)]</code> attribute for it:</p>
+                <p>或者等效的, 给它添加<code>#[derive(Copy)]</code> 属性:</p>
 
                 <div class="highlight"><pre><code class="language-rust" data-lang="rust"><span class="cp">#[derive(Copy)]</span>
                     <span class="k">struct</span> <span class="n">Info</span> <span class="p">{</span>
                     <span class="n">value</span><span class="o">:</span> <span class="kt">i64</span><span class="p">,</span>
                     <span class="p">}</span></code></pre></div>
 
-                <p>The types <strong>without</strong> this trait will be <strong>always moved</strong> to another
+                <p class="post-meta">The types <strong>without</strong> this trait will be <strong>always moved</strong> to another
                     location and will follow the <em>ownership</em> rules.</p>
-
+                <p><strong>没有</strong>实现这个特性的类型 将会 <strong>总是转移</strong> 另外的位置
+                    并前遵循<em>ownership</em> 规则.</p>
+                <p class="post-meta">笔者注：也就是说比如你有一个结构体类型struct Foo;由于它没有实现Copy特性，那么当有以下操作的时候：
+                    let x = Foo;let y = x;　好，这个时候你看.x已经被复制给了y,那么x这个变量就转移到了y这个变量,x就是不可用的了．如果
+                    后面你还使用它就会报错" error: use of moved value"．这就是zero-copy，y=x;这局代码执行并没有复制x的内存，而是转移了所有权．
+                如果你像让x在后面变得可用那就按上面那样让Foo实现Copy特性</p>
                 <h2 id="ownership"><a class="header-link" href="#ownership"><i class="fa fa-link"></i></a>Ownership</h2>
 
                 <p>Ownership rules ensure, that at any point, for a single non-copyable
