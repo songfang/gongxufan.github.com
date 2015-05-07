@@ -88,21 +88,25 @@
                     <li>and <a href="#concurrency">并发性</a>方面.</li>
                 </ul>
 
-                <h3 id="prerequisites---what-you-already-know"><a class="header-link" href="#prerequisites---what-you-already-know"><i class="fa fa-link"></i></a>Prerequisites - What you already know</h3>
+                <h3 id="prerequisites---what-you-already-know"><a class="header-link" href="#prerequisites---what-you-already-know"><i class="fa fa-link"></i></a>预备知识 - 你需要知道的</h3>
 
-                <p>Scope/stack based memory management is quite intuitive, because we are very
+                <p class="post-meta">Scope/stack based memory management is quite intuitive, because we are very
                     familiar with it.</p>
+                <p>基于作用域/栈的内存管理对我们来说是相当自然的, 因为我们对它已经非常熟悉了.</p>
 
-                <p>What happens to <code>i</code> at the end of the <code>main</code> function?</p>
+                <p class="post-meta">What happens to <code>i</code> at the end of the <code>main</code> function?</p>
+                <p>在<code>main</code>函数后面的变量<code>i</code>会发生什么?</p>
 
                 <div class="highlight"><pre><code class="language-rust" data-lang="rust"><span class="k">fn</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
                     <span class="kd">let</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
                     <span class="p">}</span></code></pre></div>
 
-                <p>It goes out of scope and dies, right?</p>
+                <p class="post-meta">It goes out of scope and dies, right?</p>
+                <p>它超出了作用域结束生命周期了, 对吧?</p>
 
-                <p>If we pass this <code>i</code> to another function <code>foo</code>, how
+                <p class="post-meta">If we pass this <code>i</code> to another function <code>foo</code>, how
                     many times will it “die”?</p>
+                <p>如果我们把这个 <code>i</code> 传递到另外一个函数 <code>foo</code>, 它的生命周期会结束多少次?</p>
 
                 <div class="highlight"><pre><code class="language-rust" data-lang="rust"><span class="k">fn</span> <span class="n">foo</span><span class="p">(</span><span class="n">i</span><span class="o">:</span> <span class="kt">i64</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// another function foo</span>
                     <span class="c1">// something</span>
@@ -113,20 +117,32 @@
                     <span class="n">foo</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> <span class="c1">// call function foo</span>
                     <span class="p">}</span></code></pre></div>
 
-                <p>Well, it will “die” twice. First, at the end of <code>foo</code>,
+                <p class="post-meta">Well, it will “die” twice. First, at the end of <code>foo</code>,
                     and then at the end of <code>main</code>. If you modify it in <code>foo</code>,
                     <strong>it will not affect</strong> the value in <code>main</code>.</p>
 
-                <p>The value <strong>gets copied</strong> at the call of <code>foo(i)</code>.</p>
+                <p>很好, 它的生命周期结束了两次. 首先, 是在<code>foo</code>函数的结尾,
+                    然后在<code>main</code>函数的结尾. 如果你在<code>foo</code>函数中改变它的值,
+                    <strong>这不会影响</strong>它在<code>main</code>函数中的值.</p>
 
-                <p>In Rust, like in C++ (and some other languages), it is possible to use
+
+                <p class="post-meta">The value <strong>gets copied</strong> at the call of <code>foo(i)</code>.</p>
+                <p>那个值在<code>foo(i)</code>函数的调用中 <strong>被复制</strong>.</p>
+
+                <p class="post-meta">In Rust, like in C++ (and some other languages), it is possible to use
                     your own type instead of integer. The value will be allocated on current stack
                     and it will be destroyed (the destructor will be called) when it goes
                     out of scope.</p>
 
-                <p>However, the Rust compiler follows different <em>ownership</em> rules, unless
+                <p>和C++ (以及其他语言)一样,  Rust也允许你使用自己的类型而不仅仅是整型. 这个值会在当前的栈上被分配，
+                    然后在它超出自己的作用域的时候会被销毁(析构器将被调用).</p>
+
+                <p class="post-meta">However, the Rust compiler follows different <em>ownership</em> rules, unless
                     type implements a <code>Copy</code> trait. Therefore we need to talk about the <code>Copy</code>
                     trait first, and get it out of the way.</p>
+
+                <p>然而，Rust编译器遵循不同的 <em>ownership</em> 规则, 除非这个类型实现<code>Copy</code> trait(特性).
+                   因此我们首先需要讨论 <code>Copy</code>trait, 并学习它.</p>
 
                 <h2 id="copy-trait"><a class="header-link" href="#copy-trait"><i class="fa fa-link"></i></a>Copy Trait</h2>
 
