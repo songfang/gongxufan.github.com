@@ -50,7 +50,7 @@
         <div class="post">
 
             <header class="post-header">
-                <h1 class="post-title">Explore the ownership system in Rust</h1>
+                <h1 class="post-title">探索Rust的所有权系统</h1>
                 <p class="post-meta">2015/5/6</p>
                 <p class="post-meta">原文地址：<a target="_blank" href="http://nercury.github.io/rust/guide/2015/01/19/ownership.html">http://nercury.github.io/rust/guide/2015/01/19/ownership.html</a></p>
             </header>
@@ -62,26 +62,30 @@
                 <p>这个由两部分(注：ownership和borrowing)组成的指南，是给那些知道<strong>Rust</strong>的基本语法,能像堆积木一样编写<strong>Rust</strong>代码，
                     但是还不能完全领悟<strong>ownership</strong> 和 <strong>borrowing</strong>是怎样运作的人阅读的．</p>
 
-                <p>We will start <em>very</em> simple, and then gradually increase
+                <p class="post-meta">We will start <em>very</em> simple, and then gradually increase
                     complexity at a slow pace, exploring and discussing every new bit
                     of detail. This guide will assume a <em>very</em>
                     basic familiarity with <code>let</code>, <code>fn</code>, <code>struct</code>, <code>trait</code> and
                     <code>impl</code> constructs.</p>
+                <p>我们将从非常简单的地方开始然后平缓的逐渐增加其复杂度，探索和讨论每一个新细节． 这篇指南假设你对 <code>let</code>, <code>fn</code>, <code>struct</code>, <code>trait</code> and
+                    <code>impl</code> 的概念有基本的熟悉.</p>
 
-                <p>Our goal is to learn how to write a new Rust program
+
+                <p class="post-meta">Our goal is to learn how to write a new Rust program
                     and not hit any walls related to ownership or borrowing.</p>
+                <p>我们的目标是学习怎么写一个新的Rust程序，而不会涉及ownership和borrowing的方方面面.</p>
 
-                <h4 id="in-this-first-ownership-part"><a class="header-link" href="#in-this-first-ownership-part"><i class="fa fa-link"></i></a>In this first, <em>ownership</em> part:</h4>
+                <h4 id="in-this-first-ownership-part"><a class="header-link" href="#in-this-first-ownership-part"><i class="fa fa-link"></i></a>首先是, <em>ownership</em> 部分:</h4>
 
                 <ul>
-                    <li>After short <a href="#prerequisites---what-you-already-know">Introduction</a></li>
-                    <li>we will learn about the <a href="#copy-trait">Copy Traits</a>, and then</li>
-                    <li>about the <a href="#ownership">Immutable</a></li>
-                    <li>and <a href="#mutable-ownership">Mutable</a> ownership rules.</li>
-                    <li>Then we will look at the <a href="#the-power-of-ownership-system">Power of Ownership system</a></li>
-                    <li>in <a href="#memory-allocation">Memory management</a>,</li>
-                    <li><a href="#garbage-collection">Garbage Collection</a></li>
-                    <li>and <a href="#concurrency">Concurrency</a>.</li>
+                    <li><a href="#prerequisites---what-you-already-know">简短介绍</a>后</li>
+                    <li>我们将学习 <a href="#copy-trait">Copy Traits</a>, 然后</li>
+                    <li>关于 <a href="#ownership">Immutable</a></li>
+                    <li>和 <a href="#mutable-ownership">Mutable</a> 的ownership 规则.</li>
+                    <li>然后我们着眼于 <a href="#the-power-of-ownership-system">Ownership系统的强大之处</a></li>
+                    <li> <a href="#memory-allocation">内存管理</a>方面,</li>
+                    <li><a href="#garbage-collection">垃圾回收</a>方面</li>
+                    <li>and <a href="#concurrency">并发性</a>方面.</li>
                 </ul>
 
                 <h3 id="prerequisites---what-you-already-know"><a class="header-link" href="#prerequisites---what-you-already-know"><i class="fa fa-link"></i></a>Prerequisites - What you already know</h3>
