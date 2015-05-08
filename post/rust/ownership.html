@@ -177,7 +177,7 @@
                 <p class="post-meta">If we have a struct <code>Info</code>, we can make it copy-able by implementing
                     <code>Copy</code> this way:</p>
 
-                <p>如果我们有一个结构体：<code>Info</code>, 通过像这样实现<code>Copy</code>,我们可以使它变得可拷贝:</p>
+                <p>如果我们有一个结构体：<code>Info</code>, 通过像这样实现的方式<code>Copy</code>,我们可以使它变得可拷贝:</p>
 
                 <div class="highlight"><pre><code class="language-rust" data-lang="rust"><span class="k">struct</span> <span class="n">Info</span> <span class="p">{</span>
                     <span class="n">value</span><span class="o">:</span> <span class="kt">i64</span><span class="p">,</span>
@@ -197,9 +197,13 @@
                 <p><strong>没有</strong>实现这个特性的类型 将会 <strong>总是转移</strong> 另外的位置
                     并前遵循<em>ownership</em> 规则.</p>
                 <p class="post-meta">笔者注：也就是说比如你有一个结构体类型struct Foo;由于它没有实现Copy特性，那么当有以下操作的时候：
-                    let x = Foo;let y = x;　好，这个时候你看.x已经被复制给了y,那么x这个变量就转移到了y这个变量,x就是不可用的了．如果
-                    后面你还使用它就会报错" error: use of moved value"．这就是zero-copy，y=x;这局代码执行并没有复制x的内存，而是转移了所有权．
-                如果你像让x在后面变得可用那就按上面那样让Foo实现Copy特性</p>
+                    let x = Foo;let y = x;　好，这个时候你看，x已经被赋值给y,那么Foo的所有权已经由x这个变量转移到了y这个变量,那么x对Foo
+                    来说已经是不可用了．如果后面你还使用它就会报错" error: use of moved value"．这就是zero-copy，y=x;这行代码执行并没有复制x的内存，而是转移了所有权．
+                如果你想让x在后面仍然变得可用那就按上面那样让Foo实现Copy特性．如果还有疑问看下面的例子:</p>
+                <p class="post-meta">下面代码中f1和f2其实已经是两块内存了．</p>
+                <p class="post-meta">
+                    <img src="../../img/copy_trait.jpg">
+                </p>
                 <h2 id="ownership"><a class="header-link" href="#ownership"><i class="fa fa-link"></i></a>Ownership</h2>
 
                 <p>Ownership rules ensure, that at any point, for a single non-copyable
