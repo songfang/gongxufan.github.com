@@ -130,13 +130,9 @@
     */
     public class MultipleViewResolver implements ViewResolver
     {
-    private Map
-    <String
-            , ViewResolver> resolvers;
+        private Map<String , ViewResolver> resolvers;
 
-        public void setResolvers(Map
-        <String
-                , ViewResolver> resolvers)
+        public void setResolvers(Map<String , ViewResolver> resolvers)
             {
             this.resolvers = resolvers;
             }
