@@ -58,7 +58,20 @@
                 <p class="post-meta">原文地址：<a target="_blank" href="http://gongxufan.github.io/post/muti-view-springmvc/muti-view-springmvc.html">http://gongxufan.github.io/post/muti-view-springmvc.html</a></p>
             </header>
             <article class="post-content">
-                <p><pre><code class="java">public class MultipleViewResolver implements ViewResolver
+                <p><pre><code class="java">
+                package com.springapp.mvc;
+
+                import org.springframework.web.servlet.View;
+                import org.springframework.web.servlet.ViewResolver;
+
+                import java.util.Locale;
+                import java.util.Map;
+
+                /**
+                * 多视图解析器，根据视图名启动不同的视图解析器
+                * Created by gongxufan on 2015/10/29.
+                */
+                public class MultipleViewResolver implements ViewResolver
                 {
                 private Map<String, ViewResolver> resolvers;
 
