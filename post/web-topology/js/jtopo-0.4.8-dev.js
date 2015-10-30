@@ -319,7 +319,7 @@
                         for (var e in a) {
                             //加载节点的图片
                             if (e == "nodeImage") {
-                                c.setImage(context +'icon/' + a[e]);
+                                c.setImage(context +'web-topology/icon/' + a[e]);
                             }
                             if (c){
                                 if(a[e] == "undefined"){
