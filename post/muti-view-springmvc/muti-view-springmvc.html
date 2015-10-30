@@ -104,7 +104,7 @@ public class MultipleViewResolver implements ViewResolver
         这个对象定义了一个Map，其中的元素便是我们的JSP视图解析器和Velocity视图解析的实例。只是我们需要把他们配置到dispatcher-servlet.xml。
     </p>
 <p>
-<pre><code> class="xml">
+<pre><code class="xml">
 <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
     <!--模板读取位置-->
     <property name="resourceLoaderPath" value="/WEB-INF/templates/"/>
