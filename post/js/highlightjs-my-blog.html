@@ -31,43 +31,6 @@
             });
         });
     </script>
-    <style type="text/css">
-        pre {
-            position: relative;
-            margin-bottom: 24px;
-            border-radius: 3px;
-            border: 1px solid #C3CCD0;
-            background: #f0f0f0;
-            overflow: hidden;
-        }
-
-        code {
-            display: block;
-            overflow-y: auto;
-            font-weight: 300;
-            font-family: Menlo, monospace;
-            font-size: 1em;
-        }
-
-        code.has-numbering {
-            margin-left: 21px;
-        }
-
-        .pre-numbering {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 20px;
-            padding: 12px 2px 12px 0;
-            border-right: 1px solid #C3CCD0;
-            border-radius: 3px 0 0 3px;
-            background-color: #EEE;
-            text-align: right;
-            font-family: "Consolas","Bitstream Vera Sans Mono","Courier New",Courier,monospace !important;
-            font-size: 1em;
-            color: #AAA;
-        }
-    </style>
 </head>
 <body>
 <header class="site-header">
@@ -141,6 +104,67 @@
     hljs.highlightBlock(block);
     });
 </code></pre>
+                </p>
+                <p>
+                    第四步、最后给我们的代码加上行号
+                </p>
+<p><pre><code class="javascript">
+    $(function(){
+    $('pre code').each(function(){
+    var lines = $(this).text().split('\n').length - 1;
+    var $numbering = $('<ul/>').addClass('pre-numbering');
+    $(this)
+    .addClass('has-numbering')
+    .parent()
+    .append($numbering);
+    for(i=1;i<=lines;i++){
+    $numbering.append($('<li/>').text(i));
+    }
+    });
+    });
+</code></pre></p>
+                <p>
+                    上面的代码先找到需要高亮显示的代码，然后将其内容按照换行符split就可以统计有多少行了。针对每一行，在它的前面添加li
+                    标签。为了美观可以加上下面的样式美化一下：
+                </p>
+
+                <p><pre><code class="css">
+                pre {
+                position: relative;
+                margin-bottom: 24px;
+                border-radius: 3px;
+                border: 1px solid #C3CCD0;
+                background: #f0f0f0;
+                overflow: hidden;
+                }
+
+                code {
+                display: block;
+                overflow-y: auto;
+                font-weight: 300;
+                font-family: Menlo, monospace;
+                font-size: 1em;
+                }
+
+                code.has-numbering {
+                margin-left: 21px;
+                }
+
+                .pre-numbering {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 20px;
+                padding: 12px 2px 12px 0;
+                border-right: 1px solid #C3CCD0;
+                border-radius: 3px 0 0 3px;
+                background-color: #EEE;
+                text-align: right;
+                font-family: "Consolas","Bitstream Vera Sans Mono","Courier New",Courier,monospace !important;
+                font-size: 1em;
+                color: #AAA;
+                }
+            </code></pre>
                 </p>
             </article>
 
