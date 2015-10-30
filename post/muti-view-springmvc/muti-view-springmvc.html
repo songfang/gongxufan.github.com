@@ -53,13 +53,40 @@
     <div class="wrapper">
         <div class="post">
             <header class="post-header">
-                <h1 class="post-title">探索Rust的所有权系统</h1>
+                <h1 class="post-title">简单搞定SpringMVC多视图配置</h1>
                 <p class="post-meta">2015/5/6</p>
-                <p class="post-meta">原文地址：<a target="_blank" href="http://nercury.github.io/rust/guide/2015/01/19/ownership.html">http://nercury.github.io/rust/guide/2015/01/19/ownership.html</a></p>
-                <p class="post-meta">显示原文:<input type="checkbox" onclick="hideOrigSection(this)"/></p>
+                <p class="post-meta">原文地址：<a target="_blank" href="http://gongxufan.github.io/post/muti-view-springmvc/muti-view-springmvc.html">http://gongxufan.github.io/post/muti-view-springmvc.html</a></p>
             </header>
             <article class="post-content">
-                <p>正文部分</p>
+                <p>
+                    <pre>
+                        <code class="javascritpt">
+                            public class MultipleViewResolver implements ViewResolver
+                            {
+                            private Map<String, ViewResolver> resolvers;
+
+                            public void setResolvers(Map<String, ViewResolver> resolvers)
+                            {
+                            this.resolvers = resolvers;
+                            }
+
+                            @Override
+                            public View resolveViewName(String viewName, Locale locale) throws Exception {
+                            int n = viewName.lastIndexOf(".");
+                            String suffix ;
+                            //原有项目默认不带jsp后缀，因为在Resolver已经配置了后缀
+                            //如果带了说明是Velocity或者其他的视图组件
+                            suffix = (n == -1 ?  "jsp" : viewName.substring(n+1));
+                            ViewResolver resolver = resolvers.get(suffix);
+                            if(resolver != null)
+                            return resolver.resolveViewName( n == -1 ?viewName:viewName.substring(0, n), locale);
+                            return null;
+                            }
+
+                            }
+                        </code>
+                    </pre>
+                </p>
 
             </article>
 
