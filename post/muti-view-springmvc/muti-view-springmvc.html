@@ -58,36 +58,30 @@
                 <p class="post-meta">原文地址：<a target="_blank" href="http://gongxufan.github.io/post/muti-view-springmvc/muti-view-springmvc.html">http://gongxufan.github.io/post/muti-view-springmvc.html</a></p>
             </header>
             <article class="post-content">
-                <p>
-                    <pre>
-                        <code class="java">
-                            public class MultipleViewResolver implements ViewResolver
-                            {
-                            private Map<String, ViewResolver> resolvers;
+                <p><pre><code class="java">public class MultipleViewResolver implements ViewResolver
+                {
+                private Map<String, ViewResolver> resolvers;
 
-                            public void setResolvers(Map<String, ViewResolver> resolvers)
-                            {
-                            this.resolvers = resolvers;
-                            }
+                public void setResolvers(Map<String, ViewResolver> resolvers)
+                {
+                this.resolvers = resolvers;
+                }
 
-                            @Override
-                            public View resolveViewName(String viewName, Locale locale) throws Exception {
-                            int n = viewName.lastIndexOf(".");
-                            String suffix ;
-                            //原有项目默认不带jsp后缀，因为在Resolver已经配置了后缀
-                            //如果带了说明是Velocity或者其他的视图组件
-                            suffix = (n == -1 ?  "jsp" : viewName.substring(n+1));
-                            ViewResolver resolver = resolvers.get(suffix);
-                            if(resolver != null)
-                            return resolver.resolveViewName( n == -1 ?viewName:viewName.substring(0, n), locale);
-                            return null;
-                            }
+                @Override
+                public View resolveViewName(String viewName, Locale locale) throws Exception {
+                int n = viewName.lastIndexOf(".");
+                String suffix ;
+                //原有项目默认不带jsp后缀，因为在Resolver已经配置了后缀
+                //如果带了说明是Velocity或者其他的视图组件
+                suffix = (n == -1 ?  "jsp" : viewName.substring(n+1));
+                ViewResolver resolver = resolvers.get(suffix);
+                if(resolver != null)
+                return resolver.resolveViewName( n == -1 ?viewName:viewName.substring(0, n), locale);
+                return null;
+                }
 
-                            }
-                        </code>
-                    </pre>
-                </p>
-
+                }
+            </code></pre></p>
             </article>
 
         </div>
