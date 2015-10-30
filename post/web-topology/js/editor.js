@@ -286,7 +286,7 @@ propertyPanel.prototype.showHelpWindow = function(){
         width: 800,
         height: 600,
         cache: true,
-        href: context + 'help.html',
+        href: context + 'web-topology/help.html',
         modal: true,
         minimizable : false,
         maximizable : false,
