@@ -387,8 +387,8 @@ propertyPanel.prototype.loadTopology = function (backImg,templateId,topologyId,t
         //topologyManage/loadTopologyJSON
         url: context + 'web-topology/topology.html',
         async: false,
-        type: "POST",
-        dataType: "json",
+        type: "GET",
+        dataType: "html",
         data: {
             "templateId":templateId,
             "topologyId":topologyId,
@@ -399,6 +399,7 @@ propertyPanel.prototype.loadTopology = function (backImg,templateId,topologyId,t
             jAlert("服务器异常，请稍后重试..");
         },
         success: function (response) {
+            response = JSON.parse(response);
             var err = response.errorInfo;
             // 错误处理
             if (err && err != "ok") {
