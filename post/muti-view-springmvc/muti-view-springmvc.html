@@ -65,7 +65,7 @@
             background-color: #EEE;
             text-align: right;
             font-family: Menlo, monospace;
-            font-size: 1.0em;
+            font-size: 1.2em;
             color: #AAA;
         }
     </style>
@@ -167,43 +167,43 @@
 
                 <p>
 <pre><code class="xml">
-    <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
-        <!--模板读取位置-->
-        <property name="resourceLoaderPath" value="/WEB-INF/templates/"/>
-        <property name="velocityProperties">
-            <props>
-                <prop key="input.encoding">UTF-8</prop>
-                <!-- 指定模板引擎进行模板处理的编码 -->
-                <prop key="output.encoding">UTF-8</prop>
-                <!-- 指定输出流的编码 -->
-            </props>
-        </property>
-    </bean>
-    <!-- spring 视图解析器配置，多视图适配解析器 -->
-    <bean id="viewResolver" class="com.springapp.mvc.MultipleViewResolver">
-        <property name="resolvers">
-            <map>
-                <entry key="jsp">
-                    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-                        <property name="prefix" value="/WEB-INF/pages/"/>
-                        <property name="suffix" value=".jsp"/>
-                    </bean>
-                </entry>
-                <entry key="vm">
-                    <bean class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
-                        <property name="contentType" value="text/html;charset=UTF-8"/>
-                        <!--这里不再像JSP视图那样配置前缀了，因为在velocityConfig已经配置了模板文件存放位置，引擎会去那个位置读取-->
-                        <property name="suffix" value=".vm"/>
-                        <property name="dateToolAttribute" value="dateTool"/>
-                        <property name="numberToolAttribute" value="numberTool"/>
-                        <!--JSP内置对象是否在模板合并前可访问-->
-                        <property name="exposeRequestAttributes" value="true"/>
-                        <property name="exposeSessionAttributes" value="true"/>
-                    </bean>
-                </entry>
-            </map>
-        </property>
-    </bean>
+    &lt;bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer"&gt;;
+        &lt;!--模板读取位置--&gt;;
+        &lt;property name="resourceLoaderPath" value="/WEB-INF/templates/"/&gt;;
+        &lt;property name="velocityProperties"&gt;;
+            &lt;props&gt;;
+                &lt;prop key="input.encoding"&gt;;UTF-8&lt;/prop&gt;;
+                &lt;!-- 指定模板引擎进行模板处理的编码 --&gt;;
+                &lt;prop key="output.encoding"&gt;;UTF-8&lt;/prop&gt;;
+                &lt;!-- 指定输出流的编码 --&gt;;
+            &lt;/props&gt;;
+        &lt;/property&gt;;
+    &lt;/bean&gt;;
+    &lt;!-- spring 视图解析器配置，多视图适配解析器 --&gt;;
+    &lt;bean id="viewResolver" class="com.springapp.mvc.MultipleViewResolver"&gt;;
+        &lt;property name="resolvers"&gt;;
+            &lt;map&gt;;
+                &lt;entry key="jsp"&gt;;
+                    &lt;bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"&gt;;
+                        &lt;property name="prefix" value="/WEB-INF/pages/"/&gt;;
+                        &lt;property name="suffix" value=".jsp"/&gt;;
+                    &lt;/bean&gt;;
+                &lt;/entry&gt;;
+                &lt;entry key="vm"&gt;;
+                    &lt;bean class="org.springframework.web.servlet.view.velocity.VelocityViewResolver"&gt;;
+                        &lt;property name="contentType" value="text/html;charset=UTF-8"/&gt;;
+                        &lt;!--这里不再像JSP视图那样配置前缀了，因为在velocityConfig已经配置了模板文件存放位置，引擎会去那个位置读取--&gt;;
+                        &lt;property name="suffix" value=".vm"/&gt;;
+                        &lt;property name="dateToolAttribute" value="dateTool"/&gt;;
+                        &lt;property name="numberToolAttribute" value="numberTool"/&gt;;
+                        &lt;!--JSP内置对象是否在模板合并前可访问--&gt;;
+                        &lt;property name="exposeRequestAttributes" value="true"/&gt;;
+                        &lt;property name="exposeSessionAttributes" value="true"/&gt;;
+                    &lt;/bean&gt;;
+                &lt;/entry&gt;;
+            &lt;/map&gt;;
+        &lt;/property&gt;;
+    &lt;/bean&gt;;
 </code>
 </pre>
                 </p>
