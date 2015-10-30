@@ -47,7 +47,7 @@
             overflow-y: auto;
             font-weight: 300;
             font-family: Menlo, monospace;
-            font-size: 0.8em;
+            font-size: 1.2em;
         }
 
         code.has-numbering {
@@ -65,7 +65,7 @@
             background-color: #EEE;
             text-align: right;
             font-family: Menlo, monospace;
-            font-size: 0.8em;
+            font-size: 1.0em;
             color: #AAA;
         }
     </style>
@@ -118,48 +118,48 @@
                     在这里，我们只需要定义自己的 ViewResolver，根据控制器传入的视图名来启用不同的视图解析即可。自定义ViewResolver代码如下：
                 </p>
 
-                <p><pre><code class="java">
-                package com.springapp.mvc;
+<p>
+<pre><code class="java">    package com.springapp.mvc;
 
-                import org.springframework.web.servlet.View;
-                import org.springframework.web.servlet.ViewResolver;
+    import org.springframework.web.servlet.View;
+    import org.springframework.web.servlet.ViewResolver;
 
-                import java.util.Locale;
-                import java.util.Map;
+    import java.util.Locale;
+    import java.util.Map;
 
-                /**
-                * 多视图解析器，根据视图名启动不同的视图解析器
-                * Created by gongxufan on 2015/10/29.
-                */
-                public class MultipleViewResolver implements ViewResolver
-                {
-                private Map
-                <String
-                , ViewResolver> resolvers;
+    /**
+    * 多视图解析器，根据视图名启动不同的视图解析器
+    * Created by gongxufan on 2015/10/29.
+    */
+    public class MultipleViewResolver implements ViewResolver
+    {
+    private Map
+    <String
+            , ViewResolver> resolvers;
 
-                public void setResolvers(Map
-                <String
+        public void setResolvers(Map
+        <String
                 , ViewResolver> resolvers)
-                {
-                this.resolvers = resolvers;
-                }
+            {
+            this.resolvers = resolvers;
+            }
 
-                @Override
-                public View resolveViewName(String viewName, Locale locale) throws Exception {
-                int n = viewName.lastIndexOf(".");
-                String suffix ;
-                //原有项目默认不带jsp后缀，因为在Resolver已经配置了后缀
-                //如果带了说明是Velocity或者其他的视图组件
-                suffix = (n == -1 ? "jsp" : viewName.substring(n+1));
-                ViewResolver resolver = resolvers.get(suffix);
-                if(resolver != null)
-                return resolver.resolveViewName( n == -1 ?viewName:viewName.substring(0, n), locale);
-                return null;
-                }
+            @Override
+            public View resolveViewName(String viewName, Locale locale) throws Exception {
+            int n = viewName.lastIndexOf(".");
+            String suffix ;
+            //原有项目默认不带jsp后缀，因为在Resolver已经配置了后缀
+            //如果带了说明是Velocity或者其他的视图组件
+            suffix = (n == -1 ? "jsp" : viewName.substring(n+1));
+            ViewResolver resolver = resolvers.get(suffix);
+            if(resolver != null)
+            return resolver.resolveViewName( n == -1 ?viewName:viewName.substring(0, n), locale);
+            return null;
+            }
 
-                }
+            }
 
-            </code></pre>
+</code></pre>
                 </p>
                 <p>
                     这个对象定义了一个Map，其中的元素便是我们的JSP视图解析器和Velocity视图解析的实例。只是我们需要把他们配置到dispatcher-servlet.xml。
@@ -212,8 +212,7 @@
                 </p>
 
                 <p>
-<pre><code class="java">
-    package com.springapp.mvc;
+<pre><code class="java">    package com.springapp.mvc;
 
     import com.springapp.service.CourseService;
     import org.springframework.beans.factory.annotation.Autowired;
