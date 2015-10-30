@@ -103,8 +103,8 @@ public class MultipleViewResolver implements ViewResolver
     <p>
         这个对象定义了一个Map，其中的元素便是我们的JSP视图解析器和Velocity视图解析的实例。只是我们需要把他们配置到dispatcher-servlet.xml。
     </p>
-<p>
 <pre>
+<code>
 <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
     <!--模板读取位置-->
     <property name="resourceLoaderPath" value="/WEB-INF/templates/"/>
@@ -140,13 +140,13 @@ public class MultipleViewResolver implements ViewResolver
         </map>
     </property>
 </bean>
+</code>
 </pre>
-</p>
     <p>
         经过上述配置就可以在控制器里随意返回.vm后缀的视图了，简单测试代码如下：
     </p>
-<p>
 <pre>
+<code>
 package com.springapp.mvc;
 
 import com.springapp.service.CourseService;
@@ -173,8 +173,8 @@ public class HelloController {
     }
 
 }
+</code>
 </pre>
-</p>
     <p>
         为了区分原有JSP视图，新添加的Velocity视图都要带上.vm后缀。
 
