@@ -31,7 +31,7 @@
     <div id="header" class="navbar">
         <div class="navbar-inner">
             <!-- logo -->
-            <a class="brand hidden-phone" style="float:left;" href="index.html">场景设计-拓扑编辑器</a>
+            <a class="brand hidden-phone" style="float:left;" href="index.html">网络拓扑编辑器</a>
             <div style="float:right; margin:7px 10px 0 0;">
                 <input id="queryText">
                 <img alt="合并" title="合并" width="24" height="24" src="images/topology/merge.fw.png" onClick="editor.utils.toMerge()" class="buttonStyle" />
@@ -313,6 +313,7 @@
         <div class="modeRightSave"  onClick="editor.saveToplogy(true)" onMouseMove="this.style.backgroundColor='#c5e7f6'" onMouseOut="this.style.backgroundColor=''"><span class="menuSpan">保存(Shift+S)</span></div>
         <div class="modeRightSetRule" onMouseMove="this.style.backgroundColor='#c5e7f6'" onMouseOut="this.style.backgroundColor=''"><span class="menuSpan" id="ruleLineSpan">隐藏参考线(Shift+L)</span></div>
         <div class="viewHelp" onclick="editor.showHelpWindow()" onMouseMove="this.style.backgroundColor='#c5e7f6'" onMouseOut="this.style.backgroundColor=''"><span class="menuSpan" id="showHelp">查看帮助(Shift+H)</span></div>
+        <div class="viewJSON" onclick="jAlert(editor.stage.toJson())" onMouseMove="this.style.backgroundColor='#c5e7f6'" onMouseOut="this.style.backgroundColor=''"><span class="menuSpan" id="showJSON">查看拓扑JSON结构</span></div>
     </div>
 
     <div id="groupMangeMenu" class="modeRight2" style="z-index: 9">
