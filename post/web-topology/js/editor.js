@@ -268,7 +268,7 @@ propertyPanel.prototype.showLoadingWindow = function(){
         height: 80,
         closed: false,
         cache: true,
-        href: '../../loading.html',
+        href: context + '/web-topology/loading.html',
         modal: true,
         minimizable : false,
         maximizable : false,
