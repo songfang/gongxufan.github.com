@@ -43,11 +43,10 @@
 
         code {
             display: block;
-            padding: 12px 24px;
             overflow-y: auto;
             font-weight: 300;
             font-family: Menlo, monospace;
-            font-size: 1.2em;
+            font-size: 1em;
         }
 
         code.has-numbering {
@@ -65,7 +64,7 @@
             background-color: #EEE;
             text-align: right;
             font-family: Menlo, monospace;
-            font-size: 1.2em;
+            font-size: 1em;
             color: #AAA;
         }
     </style>
@@ -120,10 +119,8 @@
 
 <p>
 <pre><code class="java">    package com.springapp.mvc;
-
     import org.springframework.web.servlet.View;
     import org.springframework.web.servlet.ViewResolver;
-
     import java.util.Locale;
     import java.util.Map;
 
@@ -156,8 +153,7 @@
             return resolver.resolveViewName( n == -1 ?viewName:viewName.substring(0, n), locale);
             return null;
             }
-
-            }
+        }
 
 </code></pre>
                 </p>
@@ -166,8 +162,7 @@
                 </p>
 
                 <p>
-<pre><code class="xml">
-    &lt;bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer"&gt;;
+<pre><code class="xml">    &lt;bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer"&gt;;
         &lt;!--模板读取位置--&gt;;
         &lt;property name="resourceLoaderPath" value="/WEB-INF/templates/"/&gt;;
         &lt;property name="velocityProperties"&gt;;
@@ -213,7 +208,6 @@
 
                 <p>
 <pre><code class="java">    package com.springapp.mvc;
-
     import com.springapp.service.CourseService;
     import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.stereotype.Controller;
@@ -236,7 +230,6 @@
     model.addAttribute("message", "Hello world!");
     return "test.vm";
     }
-
     }</code>
 </pre>
                 </p>
