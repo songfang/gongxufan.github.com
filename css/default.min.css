@@ -53,7 +53,7 @@ code {
     display: block;
     overflow-y: auto;
     font-weight: 300;
-    font-family: Menlo, monospace;
+    font-family: "Consolas","Bitstream Vera Sans Mono","Courier New",Courier,monospace !important;
     font-size: 1em;
 }
 
