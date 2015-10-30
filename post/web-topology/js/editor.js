@@ -268,7 +268,7 @@ propertyPanel.prototype.showLoadingWindow = function(){
         height: 80,
         closed: false,
         cache: true,
-        href: context + '/web-topology/loading.html',
+        href: context + 'web-topology/loading.html',
         modal: true,
         minimizable : false,
         maximizable : false,
@@ -385,7 +385,7 @@ propertyPanel.prototype.loadTopology = function (backImg,templateId,topologyId,t
     }
     $.ajax({
         //topologyManage/loadTopologyJSON
-        url: context + '/web-topology/topology.json',
+        url: context + 'web-topology/topology.json',
         async: false,
         type: "POST",
         dataType: "json",
