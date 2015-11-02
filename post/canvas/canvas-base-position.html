@@ -320,8 +320,8 @@
             context = canvas.getContext('2d');
     drawGridLines();
     canvas.onmousemove=function(e){
-        position.style.left = e.clientX + "px";
-        position.style.top = e.clientY + "px";
+        position.style.left = e.layerX ? e.layerX : e.offsetX + "px";
+        position.style.top = e.layerY ? e.layerY : e.offsetY + "px";
         var loc=windowToCanvas(canvas,e.clientX,e.clientY);
         drawGridLines();
         drawRuleLines(loc.x,loc.y);
