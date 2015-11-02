@@ -171,8 +171,9 @@ pre > code {
 }
 
 .site-nav .page-link {
-    color: #111;
+    color: #FFFFFF;
     line-height: 1.5;
+    font-weight: bold;
 }
 
 .site-nav .page-link:not(:first-child) {
