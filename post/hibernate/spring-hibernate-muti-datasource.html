@@ -76,7 +76,7 @@
                     其代码结构如下：</p>
 <p>
 <pre>
-<code class="java">     public abstract class AbstractRoutingDataSource extends AbstractDataSource implements InitializingBean {
+<code class="java">    public abstract class AbstractRoutingDataSource extends AbstractDataSource implements InitializingBean {
     private Map<Object, Object> targetDataSources;
     private Object defaultTargetDataSource;
     private boolean lenientFallback = true;
@@ -120,7 +120,7 @@
                 <p>对应的XML配置如下：</p>
 <p>
 <pre>
-<code class="java">     &lt;bean id="dataSource" class="com.bjhit.cncert.db.DynamicDataSource"&gt;
+<code class="java">    &lt;bean id="dataSource" class="com.bjhit.cncert.db.DynamicDataSource"&gt;
     &lt;bean id="dataSource1" class="org.logicalcobwebs.proxool.ProxoolDataSource"&gt;
        ...数据库配置
     &lt;/bean&gt;
@@ -159,7 +159,7 @@
                 <h3>第一步、实现动态数据源对象</h3>
 <p>
 <pre>
-<code class="java">     package com.bjhit.cncert.db;
+<code class="java">    package com.bjhit.cncert.db;
     import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
     public class DynamicDataSource extends AbstractRoutingDataSource{
@@ -176,7 +176,7 @@
                     名字ID的dataSource作为本次DAO操作的数据源。其代码如下：</p>
 <p>
 <pre>
-<code class="java">     package com.bjhit.cncert.db;
+<code class="java">    package com.bjhit.cncert.db;
     public class DBContextHolder {
     public static final String DATA_SOURCE_1 = "dataSource1";
     public static final String DATA_SOURCE_2 = "dataSourc2";
