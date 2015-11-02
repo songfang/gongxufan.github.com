@@ -44,7 +44,7 @@
 </header>
 
 
-<div class="page-content" id="pageContent">
+<div class="page-content">
     <div class="wrapper">
         <div class="home">
 
@@ -153,24 +153,5 @@
         class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1600</span> x <span
         class="tooltipHeight" id="winHeight">871</span><br><span class="tooltipTitle">Viewport size: </span><span
         class="tooltipWidth" id="vpWidth">1067</span> x <span class="tooltipHeight" id="vpHeight">100</span></div>
-<script type="text/javascript">
-    var id=function(o){return document.getElementById(o)}
-    var scroll=function (o){
-        var space=id(o).offsetTop;
-        id(o).style.top=space+'px';
-        void function(){
-            var goTo = 0;
-            var roll=setInterval(function(){
-                var height =document.documentElement.scrollTop+document.body.scrollTop+space;
-                var top = parseInt(id(o).style.top);
-                if(height!= top){
-                    goTo = height-parseInt((height - top)*0.9);
-                    id(o).style.top=goTo+'px';
-                }
-            },1);
-        }()
-    }
-    scroll('pageContent');
-</script>
 </body>
 </html>

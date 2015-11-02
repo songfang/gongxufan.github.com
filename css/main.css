@@ -141,11 +141,12 @@ pre > code {
 
 /** Site header */
 .site-header {
-    border-top: 5px solid #424242;
+    border-top: 5px solid #B4A6A6;
     border-bottom: 1px solid #e8e8e8;
     min-height: 56px;
     position: fixed;
     width: 100%;
+    background-color:#FDFDFD
 }
 
 .site-title {
