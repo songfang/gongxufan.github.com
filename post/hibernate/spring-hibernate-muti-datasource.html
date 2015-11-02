@@ -215,8 +215,7 @@
 </pre>
 </p>
                 <p>
-                    当我们调用 DBContextHolder.setDBType(DBContextHolder.DATA_SOURCE_2)方式时，
-                   determineCurrentLookupKey这个方法通过调用DBContextHolder.getDBType()获取的数据源名字
+                    当我们调用 DBContextHolder.setDBType(DBContextHolder.DATA_SOURCE_2)方法时，determineCurrentLookupKey这个方法通过调用DBContextHolder.getDBType()获取的数据源名字
                     就已经切换到了dataSource2，所以接下来的数据库操作就是使用新的数据源了。切换完之后就把数据源切换到
                     默认的数据源。
                 </p>
