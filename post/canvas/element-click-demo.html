@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<head>
+    <title>演示Canvas元素鼠标点击事件处理</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background: #dddddd;
+            margin: auto;
+        }
+
+        #canvas {
+            position: absolute;
+            left: 0px;
+            top: 20px;
+            margin: 20px;
+            background: #ffffff;
+            border: thin inset rgba(100, 150, 230, 0.5);
+            cursor: pointer;
+        }
+
+        #position {
+            margin-top: 10px;
+            margin-left: 15px;
+            color: blue;
+            position: absolute;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+<div id='position'></div>
+<canvas id='canvas' width='500' height='250'>
+    Canvas not supported
+</canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById('canvas'),
+            position = document.getElementById('position'),
+            context = canvas.getContext('2d');
+    drawGridLines();
+    canvas.onmousemove = function (e) {
+        position.style.left = e.x + "px";
+        position.style.top = e.y + "px";
+        var loc = windowToCanvas(canvas, e.clientX, e.clientY);
+        drawGridLines();
+        drawRuleLines(loc.x, loc.y);
+        updatePosition(loc.x, loc.y);
+        drawImage();
+    };
+
+    /**
+     * 计算当前鼠标位置相对Canvas的位置
+     * @param canvas
+     * @param x
+     * @param y
+     * @returns {{x: number, y: number}}
+     */
+    function windowToCanvas(canvas, x, y) {
+        //canvas绘图区相对window的坐标
+        var bbox = canvas.getBoundingClientRect();
+        //canvas元素大小与绘图表面大小不一致是，对这两个坐标进行缩放
+        return {
+            x: x - bbox.left * (canvas.width / bbox.width),
+            y: y - bbox.top * (canvas.height / bbox.height)
+        };
+    }
+
+    //绘制网格线
+    function drawGridLines() {
+        var VERTICAL_LINE_SPACING = 12,
+                i = context.canvas.height,
+                j = context.canvas.width;
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.strokeStyle = 'lightgray';
+        context.lineWidth = 0.5;
+        //画横线连线
+        while (i > 0) {
+            context.beginPath();
+            context.moveTo(0, i);
+            context.lineTo(context.canvas.width, i);
+            context.stroke();
+            i -= VERTICAL_LINE_SPACING;
+        }
+        //画纵向连线
+        while (j > 0) {
+            context.beginPath();
+            context.moveTo(j, 0);
+            context.lineTo(j, context.canvas.height);
+            context.stroke();
+            j -= VERTICAL_LINE_SPACING;
+        }
+    }
+
+    /**
+     * 画坐标标尺线，显示当前位置
+     * @param x
+     * @param y
+     */
+    function drawRuleLines(x, y) {
+        context.strokeStyle = 'rgba(0,0,230,0.8)';
+        context.lineWidth = 0.5;
+        drawVerticalLine(x);
+        drawHorizontalLine(y);
+    }
+    function updatePosition(x, y) {
+        position.innerText = '(' + x.toFixed(0) + ',' + y.toFixed(0) + ')';
+    }
+    function drawHorizontalLine(y) {
+        context.beginPath();
+        context.moveTo(0, y + 0.5);
+        context.lineTo(context.canvas.width, y + 0.5);
+        context.stroke();
+    }
+    function drawVerticalLine(x) {
+        context.beginPath();
+        context.moveTo(x + 0.5, 0);
+        context.lineTo(x + 0.5, context.canvas.height);
+        context.stroke();
+    }
+
+    //画一个图片
+    var img = new Image();
+    img.src = "img/bg.png"
+    img.onload = function () {
+        drawImage();
+    };
+    //绘制的图片顶点坐标
+    var imgPos = {
+        x :canvas.width/2,
+        y : canvas.height/2
+    }
+    //在canvas中画图
+    function drawImage(){
+        context.drawImage(img,imgPos.x,imgPos.y)
+    }
+
+    //浏览器兼容性处理
+    if(document.addEventListener){
+        document.addEventListener("click", function (e) {
+            clickHandel(e);
+        });
+    }else{
+        document.attachEvent("click", function (e) {
+            clickHandel(e);
+        });
+    }
+
+    //处理click事件，首先判断点击源是否是canvas对象，然后在判断点击是否发生在图片所在的区域
+    function clickHandel(e){
+        var ele  = e.target || e.srcElement;
+        if(ele == canvas){
+            //事件发生位置相对canvas位置
+            var clickPos = windowToCanvas(canvas, e.clientX, e.clientY);
+            //计算事件位置是否在图形坐标区域内
+            if( clickPos.x >= imgPos.x && clickPos.x <= imgPos.x + img.width
+                    && clickPos.y >= imgPos.y && clickPos.y <= imgPos.y + img.height){
+                alert("你点击了图片!");
+            }
+        }
+    }
+</script>
+</body>
+</html>
