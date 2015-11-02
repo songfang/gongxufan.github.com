@@ -146,7 +146,8 @@ pre > code {
     min-height: 56px;
     position: fixed;
     width: 100%;
-    background-color:#FDFDFD
+    background-color:#FDFDFD;
+    z-index: 999;
 }
 
 .site-title {
@@ -234,6 +235,7 @@ pre > code {
     left: 0;
     width: 100%;
     background-color: #FDFDFD;
+    z-index: 999;
 }
 
 .footer-heading {

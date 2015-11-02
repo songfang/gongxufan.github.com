@@ -316,11 +316,11 @@
     var canvas = document.getElementById('canvas'),
             position = document.getElementById('position'),
             context = canvas.getContext('2d');
+    drawGridLines();
     canvas.onmousemove=function(e){
         position.style.left = e.x + "px";
         position.style.top = e.y + "px";
         var loc=windowToCanvas(canvas,e.clientX,e.clientY);
-        drawGridLines();
         drawRuleLines(loc.x,loc.y);
         updatePosition(loc.x,loc.y);
     };
