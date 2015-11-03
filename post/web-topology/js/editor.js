@@ -1638,7 +1638,7 @@ networkTopologyEditor.prototype.drag = function (modeDiv, drawArea, text) {
                 node.fontColor = self.config.nodeFontColor;
                 node.setBound((e.layerX ? e.layerX : e.offsetX) - self.scene.translateX - self.config.defaultWidth / 2, (e.layerY ? e.layerY : e.offsetY) - self.scene.translateY - self.config.defaultHeight / 2,self.config.defaultWidth,self.config.defaultHeight);
                 //设备图片
-                node.setImage(context + 'icon/' + img);
+                node.setImage(context + 'web-topology/icon/' + img);
                 //var cuurId = "device" + (++self.modeIdIndex);
                 var cuurId = "" + new Date().getTime() * Math.random();
                 node.deviceId = cuurId;
