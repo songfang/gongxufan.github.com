@@ -179,7 +179,9 @@ pre > code {
 .site-nav .page-link:not(:first-child) {
     margin-left: 20px;
 }
-
+.page-link{
+    padding : 20px;
+}
 @media screen and (max-width: 600px) {
     .site-nav {
         position: absolute;
