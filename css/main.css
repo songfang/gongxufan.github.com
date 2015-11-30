@@ -654,24 +654,9 @@ h1:hover .header-link, h2:hover .header-link, h3:hover .header-link, h4:hover .h
     padding: 20px;
     margin-bottom: 50px;
     box-shadow: 0 1px 4px #ccc;
-    max-height: 175px;
+    max-height: 480px;
     position: fixed;
     top: 40px;
     left: 885px;
     overflow:auto
-}
-.sidenav ul {
-    margin-bottom: 50px;
-}
-ol, ul {
-    list-style: none;
-}
-ul, menu, dir {
-    display: block;
-    list-style-type: disc;
-    -webkit-margin-before: 1em;
-    -webkit-margin-after: 1em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-    -webkit-padding-start: 40px;
 }
