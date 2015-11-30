@@ -6,7 +6,7 @@ body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure {
 
 /** Basic styling */
 body {
-    font-family: Microsoft YaHei,Verdana,sans-serif,宋体;
+    font-family: "微软雅黑","Arial","Helvetica","sans-serif";
     font-size: 16px;
     line-height: 1.5;
     font-weight: 300;
@@ -645,4 +645,33 @@ h1:hover .header-link, h2:hover .header-link, h3:hover .header-link, h4:hover .h
     opacity: 0.6;
     text-decoration: none;
     color: black;
+}
+
+.sidenav {
+    width: 240px;
+    background: #fff;
+    float: right;
+    padding: 20px;
+    margin-bottom: 50px;
+    box-shadow: 0 1px 4px #ccc;
+    max-height: 175px;
+    position: fixed;
+    top: 40px;
+    left: 885px;
+    overflow:auto
+}
+.sidenav ul {
+    margin-bottom: 50px;
+}
+ol, ul {
+    list-style: none;
+}
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
 }
