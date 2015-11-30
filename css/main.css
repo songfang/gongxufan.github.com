@@ -653,10 +653,14 @@ h1:hover .header-link, h2:hover .header-link, h3:hover .header-link, h4:hover .h
     float: right;
     padding: 20px;
     margin-bottom: 50px;
-    box-shadow: 0 1px 4px #ccc;
     max-height: 480px;
     position: fixed;
     top: 40px;
     left: 885px;
-    overflow:auto
+    overflow:auto;
+}
+.sidenav a {
+    color: #555;
+    font-size: 14px;
+    display: block;
 }
