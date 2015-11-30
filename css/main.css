@@ -653,9 +653,8 @@ h1:hover .header-link, h2:hover .header-link, h3:hover .header-link, h4:hover .h
     float: right;
     padding: 20px;
     margin-bottom: 50px;
-    max-height: 480px;
     position: fixed;
-    top: 40px;
+    top: 80px;
     left: 885px;
     overflow:auto;
 }
@@ -663,4 +662,7 @@ h1:hover .header-link, h2:hover .header-link, h3:hover .header-link, h4:hover .h
     color: #555;
     font-size: 14px;
     display: block;
+}
+.home{
+    padding:30px;
 }
