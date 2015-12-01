@@ -47,10 +47,83 @@
 
 <div class="page-content">
     <div  class="wrapper">
-        <div id="content" class="home">
-
+        <div>
             <h1 class="page-heading">文章列表</h1>
-            <ul class="post-list">
+            <ul class="post-list" style="float: left">
+                <li>
+                    <span class="post-meta">2015/11/19</span>
+                    <h2>
+                        <a class="post-link" href="/post/xpath/java-xpath.html">使用XPath解析XML文件</a>
+                    </h2>
+                </li>
+                <li>
+                    <span class="post-meta">2015/11/1</span>
+                    <h2>
+                        <a class="post-link" href="/post/pagination/web-pagination-tag.html">使用JSTL的Tag标签实现WEB动态分页</a>
+                    </h2>
+                </li>
+                <li>
+                    <span class="post-meta">2015/10/30</span>
+                    <h2>
+                        <a class="post-link" href="/post/web-topology/topologyEditor.html">基于web的在线拓扑编辑器</a>
+                    </h2>
+                </li>
+                <li>
+                    <span class="post-meta">2015/7/4</span>
+                    <h2>
+                        <a class="post-link" href="/post/canvas/canvas-element-click-handle.html">Canvas系列--处理鼠标点击事件</a>
+                    </h2>
+                </li>
+                <li>
+                    <span class="post-meta">2015/7/3</span>
+                    <h2>
+                        <a class="post-link" href="/post/canvas/canvas-base-position.html">Canvas系列--搞定canvas坐标</a>
+                    </h2>
+                </li>
+                <li>
+                    <span class="post-meta">2015/7/1</span>
+                    <h2>
+                        <a class="post-link" href="/post/web-dev-tools/web-dev-chrome.html">web开发前端调试工具 - Chrome DevTools</a>
+                    </h2>
+                </li>
+                <li>
+                    <span class="post-meta">2015/6/10</span>
+                    <h2>
+                        <a class="post-link" href="/post/muti-view-springmvc/muti-view-springmvc.html">简单搞定SpringMVC多视图配置</a>
+                    </h2>
+                </li>
+                <li>
+                    <span class="post-meta">2015/6/4</span>
+                    <h2>
+                        <a class="post-link" href="/post/hibernate/spring-hibernate-muti-datasource.html">Spring集成Hibernate的动态数据源配置和使用</a>
+                    </h2>
+                </li>
+                <li>
+                    <span class="post-meta">2015/5/16</span>
+                    <h2>
+                        <a class="post-link" href="/post/js/js-code-many-feature.html">一段JavaScript代码，包含众多JS特性使用</a>
+                    </h2>
+                </li>
+                <li>
+                    <span class="post-meta">2015/5/10</span>
+                    <h2>
+                        <a class="post-link" href="/post/js/highlightjs-my-blog.html">给自己的博客引入高亮显示插件Highlight.js</a>
+                    </h2>
+                </li>
+                <li>
+                    <span class="post-meta">2015/5/6</span>
+                    <h2>
+                        <a class="post-link" href="/post/rust/ownership.html">Rust所有权系统探索<翻译：Explore the ownership system in Rust></a>
+                    </h2>
+                </li>
+                <li>
+                    <span class="post-meta">2015/5/3</span>
+                    <h2>
+                        <a class="post-link" href="/post/j2ee/java_full_stack.html">传说中的全栈式Java程序猿</a>
+                    </h2>
+                </li>
+            </ul>
+            <ul class="post-list" style="float: right">
                 <li>
                     <span class="post-meta">2015/11/19</span>
                     <h2>
@@ -127,14 +200,7 @@
             <!--关注潇湘往事 - 微博-->
             <!--<p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>-->
         </div>
-        <div id="nve" class="sidenav">
-          <ul style="list-style: none">
-              <li><a>使用XPath解析XML文件</a></li>
-              <li><a>使用XPath解析XML文件</a></li>
-              <li><a>使用XPath解析XML文件</a></li>
-              <li><a>使用XPath解析XML文件</a></li>
-          </ul>
-        </div>
+
     </div>
 </div>
 
@@ -203,9 +269,6 @@
         bp.src = '//push.zhanzhang.baidu.com/push.js';
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(bp, s);
-        var content = $("#content");
-        document.getElementById("nav").style.top=(document.documentElement.scrollTop)+"px";
-        document.getElementById("nav").style.left=(document.documentElement.scrollLeft+document.documentElement.clientWidth-document.getElementById("nav").offsetWidth)+"px";
     })();
 </script>
 </body>
