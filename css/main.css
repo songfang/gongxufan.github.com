@@ -299,6 +299,7 @@ pre > code {
 /** Page content */
 .page-content {
     padding-top: 80px;
+    text-indent: 30px;
 }
 
 .page-heading {
