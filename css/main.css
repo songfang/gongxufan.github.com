@@ -325,7 +325,8 @@ pre > code {
 }
 .post-link2 {
     display: block;
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 10px;
 }
 
 
@@ -657,7 +658,4 @@ h1:hover .header-link, h2:hover .header-link, h3:hover .header-link, h4:hover .h
     background: #fff;
     position: absolute;
     overflow:auto;
-}
-.sidenav a {
-    line-height: 30px;
 }
