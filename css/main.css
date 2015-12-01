@@ -651,8 +651,6 @@ h1:hover .header-link, h2:hover .header-link, h3:hover .header-link, h4:hover .h
 .sidenav {
     width: 240px;
     background: #fff;
-    float: right;
-    padding: 20px;
     margin-bottom: 50px;
     position: fixed;
     top: 90px;
@@ -660,9 +658,7 @@ h1:hover .header-link, h2:hover .header-link, h3:hover .header-link, h4:hover .h
     overflow:auto;
 }
 .sidenav a {
-    color: #555;
-    font-size: 14px;
-    display: block;
+    line-height: 30px;
 }
 .home{
     padding:30px;

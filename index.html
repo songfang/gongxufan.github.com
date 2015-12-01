@@ -46,7 +46,7 @@
 
 
 <div class="page-content">
-    <div class="wrapper">
+    <div id="content" class="wrapper">
         <div class="home">
 
             <h1 class="page-heading">文章列表</h1>
@@ -127,7 +127,7 @@
             <!--关注潇湘往事 - 微博-->
             <!--<p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>-->
         </div>
-        <div class="sidenav">
+        <div id="nve" class="sidenav">
           <ul style="list-style: none">
               <li><a>使用XPath解析XML文件</a></li>
               <li><a>使用XPath解析XML文件</a></li>
@@ -203,6 +203,11 @@
         bp.src = '//push.zhanzhang.baidu.com/push.js';
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(bp, s);
+        var content = $("#content");
+        $("#nav").css({
+            "left":content.width + document.getElementById("content").style.left,
+            "top":content.width + document.getElementById("content").style.left,
+        });
     })();
 </script>
 </body>
