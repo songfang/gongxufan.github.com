@@ -651,10 +651,7 @@ h1:hover .header-link, h2:hover .header-link, h3:hover .header-link, h4:hover .h
 .sidenav {
     width: 240px;
     background: #fff;
-    margin-bottom: 50px;
-    position: fixed;
-    top: 90px;
-    left: 885px;
+    position: absolute;
     overflow:auto;
 }
 .sidenav a {
