@@ -205,8 +205,8 @@
         s.parentNode.insertBefore(bp, s);
         var content = $("#content");
         $("#nav").css({
-            "left":content.width + document.getElementById("content").style.left,
-            "top":content.width + document.getElementById("content").style.left,
+            "left":content.width() + document.getElementById("content").style.left,
+            "top":content.height() + document.getElementById("content").style.top,
         });
     })();
 </script>
