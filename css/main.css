@@ -44,6 +44,9 @@ li > ul, li > ol {
     margin-bottom: 0;
 }
 
+p{
+    text-indent: 30px;
+}
 /** Headings */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
@@ -304,7 +307,6 @@ pre > code {
 /** Page content */
 .page-content {
     padding-top: 80px;
-    text-indent: 30px;
 }
 
 .page-heading {
