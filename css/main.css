@@ -11,9 +11,8 @@ body {
     line-height: 1.5;
     font-weight: 300;
     color: #111;
-    background-color: #fdfdfd;
+    background-color: #C4EBBC;
     -webkit-text-size-adjust: 100%;
-    background: url("../img/bk.jpg") repeat;
 }
 
 /** Set `margin-bottom` to maintain vertical rhythm */
