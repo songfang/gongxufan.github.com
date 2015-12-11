@@ -13,7 +13,7 @@ body {
     color: #111;
     background-color: #fdfdfd;
     -webkit-text-size-adjust: 100%;
-    background-image: url("../img/bk.jpg");
+    background: url("../img/bk.jpg") no-repeat;
 }
 
 /** Set `margin-bottom` to maintain vertical rhythm */
@@ -240,11 +240,10 @@ pre > code {
 
 /** Site footer */
 .site-footer {
-    padding: 20px;
+    padding: 20px 0;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #FDFDFD;
     z-index: 999;
 }
 
