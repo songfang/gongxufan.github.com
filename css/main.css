@@ -13,6 +13,7 @@ body {
     color: #111;
     background-color: #fdfdfd;
     -webkit-text-size-adjust: 100%;
+    background-image: url("../img/bk.jpg");
 }
 
 /** Set `margin-bottom` to maintain vertical rhythm */
