@@ -311,6 +311,7 @@ pre > code {
 .page-heading {
     font-size: 20px;
     font-weight: bold;
+    line-height: 60px;
 }
 
 .post-list {
