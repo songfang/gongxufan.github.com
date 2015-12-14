@@ -108,7 +108,8 @@ pre > code {
 .wrapper2 {
     margin-right: auto;
     margin-left: auto;
-    padding-left: 60px;
+    padding-right: 60px;
+    padding-left: 350px;
 }
 .wrapper {
     max-width: -webkit-calc(800px);
