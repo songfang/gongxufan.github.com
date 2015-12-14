@@ -109,7 +109,7 @@ pre > code {
     margin-right: auto;
     margin-left: auto;
     padding-right: 60px;
-    padding-left: 350px;
+    padding-left: 450px;
 }
 .wrapper {
     max-width: -webkit-calc(800px);
@@ -316,6 +316,7 @@ pre > code {
 .post-list {
     margin-left: 0;
     list-style: none;
+    width: 450px;
 }
 
 .post-list > li {
