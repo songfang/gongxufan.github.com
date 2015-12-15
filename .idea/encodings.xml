@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/post/web-topology/js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/post/web-topology/js/editor.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/post/web-topology/js/jquery-1.7.1.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/post/web-topology/js/jquery.alerts.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/post/web-topology/js/jquery.drawTopologyPic.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/post/web-topology/js/jquery.easyui.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/post/web-topology/js/jquery.ipinput.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/post/web-topology/js/jtopo-0.4.8-dev.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/post/web-topology/js/network.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/post/web-topology/js/topologyProperties.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/post/web-topology/js/util.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/post/web-topology/loading.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/post/web-topology/topology.html" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
