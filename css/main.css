@@ -106,10 +106,10 @@ pre > code {
 
 /** Wrapper */
 .wrapper2 {
+    max-width: -webkit-calc(800px);
+    max-width: calc(800px);
     margin-right: auto;
     margin-left: auto;
-    padding-right: 60px;
-    padding-left: 450px;
 }
 .wrapper {
     max-width: -webkit-calc(800px);
